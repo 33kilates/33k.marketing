@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fluxograma Estratégico — Projeto Série A (EUA) — 33K Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0f;--card:#12121a;--card2:#1a1a2e;--border:#2a2a3e;--gold:#d4a853;--gold2:#f0c674;--blue:#4a7fff;--blue2:#6a9fff;--green:#34d399;--red:#f87171;--purple:#a78bfa;--cyan:#22d3ee;--text:#e8e8f0;--text2:#9898b0;--text3:#6868a0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+.header{background:linear-gradient(135deg,#0d0d15 0%,#1a1a2e 50%,#0d0d15 100%);border-bottom:1px solid var(--border);padding:24px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-text{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo-sub{font-size:13px;color:var(--text2);font-weight:400}
+.header-badge{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:6px 16px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+nav{display:flex;gap:4px;background:var(--card);border-radius:12px;padding:4px;border:1px solid var(--border);flex-wrap:wrap;justify-content:center;margin:20px auto;max-width:1200px}
+nav button{background:none;border:none;color:var(--text2);padding:10px 16px;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;transition:all .3s;white-space:nowrap}
+nav button:hover{color:var(--text);background:rgba(255,255,255,.05)}
+nav button.active{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;font-weight:700}
+.container{max-width:1300px;margin:0 auto;padding:20px 24px 60px}
+.section{display:none;animation:fadeIn .5s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section-header{text-align:center;margin-bottom:36px}
+.section-header .badge{display:inline-block;background:rgba(212,168,83,.15);color:var(--gold);padding:6px 18px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.section-header h2{font-size:32px;font-weight:800;margin-bottom:8px}
+.section-header p{color:var(--text2);font-size:15px;max-width:700px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px;transition:all .3s}
+.card:hover{border-color:rgba(212,168,83,.3);transform:translateY(-2px)}
+.card h3{font-size:18px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.card p,.card li{color:var(--text2);font-size:14px;line-height:1.7}
+.card ul{list-style:none;padding:0}
+.card ul li{padding:4px 0;padding-left:20px;position:relative}
+.card ul li::before{content:'→';position:absolute;left:0;color:var(--gold)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.flow-box{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;position:relative}
+.flow-box.gold{border-color:var(--gold);background:rgba(212,168,83,.08)}
+.flow-box.blue{border-color:var(--blue);background:rgba(74,127,255,.08)}
+.flow-box.green{border-color:var(--green);background:rgba(52,211,153,.08)}
+.flow-box.red{border-color:var(--red);background:rgba(248,113,113,.08)}
+.flow-box.purple{border-color:var(--purple);background:rgba(167,139,250,.08)}
+.flow-box.cyan{border-color:var(--cyan);background:rgba(34,211,238,.08)}
+.flow-box h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.flow-box .price{font-size:20px;font-weight:800;margin:8px 0}
+.flow-box .desc{font-size:12px;color:var(--text2);line-height:1.5}
+.flow-arrow{text-align:center;padding:8px 0;color:var(--gold);font-size:24px}
+.flow-arrow-h{display:inline-block;padding:0 12px;color:var(--gold);font-size:20px;vertical-align:middle}
+.tag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600}
+.tag.gold{background:rgba(212,168,83,.15);color:var(--gold)}
+.tag.blue{background:rgba(74,127,255,.15);color:var(--blue)}
+.tag.green{background:rgba(52,211,153,.15);color:var(--green)}
+.tag.red{background:rgba(248,113,113,.15);color:var(--red)}
+.tag.purple{background:rgba(167,139,250,.15);color:var(--purple)}
+.meta-card{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:12px}
+.meta-card h4{font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.meta-card .smart{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px}
+.meta-card .smart .letter{font-weight:800;color:var(--gold)}
+.stat-row{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0}
+.stat{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;flex:1;min-width:140px;text-align:center}
+.stat .number{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat .label{font-size:11px;color:var(--text2);margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
+.highlight{background:rgba(212,168,83,.08);border:1px solid rgba(212,168,83,.2);border-radius:10px;padding:16px 20px;margin:12px 0}
+.highlight.blue-h{background:rgba(74,127,255,.08);border-color:rgba(74,127,255,.2)}
+.highlight.green-h{background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.2)}
+.divider{height:1px;background:var(--border);margin:24px 0}
+.footer{text-align:center;padding:40px;color:var(--text3);font-size:12px;border-top:1px solid var(--border)}
+.dor-item{background:var(--card2);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:12px}
+.dor-item h4{font-size:14px;font-weight:600;margin-bottom:8px}
+.dor-item .flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--text2)}
+.dor-item .flow .step{background:rgba(74,127,255,.12);color:var(--blue2);padding:4px 10px;border-radius:6px;font-size:12px}
+.print-btn{background:none;border:1px solid var(--border);color:var(--text2);padding:8px 16px;border-radius:8px;cursor:pointer;font-family:'Inter';font-size:12px;transition:all .3s}
+.print-btn:hover{border-color:var(--gold);color:var(--gold)}
+@media print{nav,.header,.print-btn{display:none!important}.section{display:block!important;page-break-inside:avoid;margin-bottom:40px}.container{max-width:100%}body{background:#fff;color:#000}.card,.flow-box,.meta-card,.stat,.dor-item,.highlight{background:#f8f8f8;border-color:#ddd;color:#000}.card p,.card li,.flow-box .desc,.meta-card .smart{color:#333}.section-header h2{color:#000}}
+</style>
+</head>
+<body>
+<div class="header">
+<div class="logo">
+<div>
+<div class="logo-text">33K MARKETING</div>
+<div class="logo-sub">Fluxograma Estratégico — Projeto Série A (EUA)</div>
+</div>
+</div>
+<div style="display:flex;gap:12px;align-items:center">
+<button class="print-btn" onclick="window.print()">🖨️ Imprimir / PDF</button>
+<div class="header-badge">Confidencial · Mar 2026</div>
+</div>
+</div>
+
+<nav id="nav">
+<button class="active" onclick="showSection(0,this)">Q1 · Pacotes</button>
+<button onclick="showSection(1,this)">Q2 · Green Card VSL</button>
+<button onclick="showSection(2,this)">Q3 · Framework Funis</button>
+<button onclick="showSection(3,this)">Q4 · Metas & Sprints</button>
+<button onclick="showSection(4,this)">Q5 · Pipeline FSS</button>
+<button onclick="showSection(5,this)">Q6 · Escada de Valor</button>
+<button onclick="showSection(6,this)">Q7 · Potencial de Escala</button>
+</nav>
+
+<div class="container">
+
+<!-- Q1 -->
+<div class="section active" id="s0">
+<div class="section-header">
+<div class="badge">Quadrante 1</div>
+<h2>Esteira de Pacotes de Marketing</h2>
+<p>Modelo de sociedade com agente nos EUA. Máximo 2 pacotes por vez — resultado gera o próximo.</p>
+</div>
+
+<div class="card">
+<h3>🔄 Fluxo de Venda</h3>
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0">
+<div class="flow-box" style="flex:1;min-width:120px"><h4>Prospecção</h4><div class="desc">Sócio EUA + Inbound</div></div>
+<span class="flow-arrow-h">→</span>
+<div class="flow-box" style="flex:1;min-width:120px"><h4>Diagnóstico</h4><div class="desc">Call gratuita</div></div>
+<span class="flow-arrow-h">→</span>
+<div class="flow-box gold" style="flex:1;min-width:120px"><h4>Pacote Inicial</h4><div class="desc">Máx. 2 pacotes</div></div>
+<span class="flow-arrow-h">→</span>
+<div class="flow-box green" style="flex:1;min-width:120px"><h4>Progressão</h4><div class="desc">Resultado gera next</div></div>
+</div>
+</div>
+
+<div class="card">
+<h3>🎯 Mapeamento por Dor do Cliente</h3>
+<div class="dor-item">
+<h4>Dor 01 — "Ninguém conhece minha marca. Eu posto, mas ninguém vê."</h4>
+<div class="flow">
+<span class="step">Audiência Qualificada · US$ 1.000/mês</span><span>→ 45 dias →</span>
+<span class="step">+ Scripts Criativos · US$ 900</span><span>→ 90 dias →</span>
+<span class="step">+ Geração Demanda · US$ 1.300</span>
+</div>
+</div>
+<div class="dor-item">
+<h4>Dor 02 — "Gasto com anúncio e não vendo. Parece que jogo dinheiro fora."</h4>
+<div class="flow">
+<span class="step">Geração Demanda · US$ 1.300/mês</span><span>→ 45 dias →</span>
+<span class="step">+ Captação Leads · US$ 1.200</span><span>→ 90 dias →</span>
+<span class="step">+ Scripts · US$ 900</span>
+</div>
+</div>
+<div class="dor-item">
+<h4>Dor 03 — "Recebo contatos todo dia, mas meu time não fecha."</h4>
+<div class="flow">
+<span class="step">Funil de Vendas · US$ 1.700/mês · mín. 3 meses</span><span>→ 60 dias →</span>
+<span class="step">+ Geração Demanda · US$ 1.300</span><span>→ 90 dias →</span>
+<span class="step">+ Scripts · US$ 900</span>
+</div>
+</div>
+<div class="dor-item">
+<h4>Dor 04 — "Vendo, mas tô travado. Não consigo crescer." (Serviço/Marca)</h4>
+<div class="flow">
+<span class="step">Direcionamento Conteúdo · US$ 1.400/mês</span><span>→</span>
+<span class="step">+ Geração Demanda · US$ 1.300</span><span>→</span>
+<span class="step">+ Scripts · US$ 900</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h3>💰 Precificação Operacional — Funis de Infoprodutos</h3>
+<p style="margin-bottom:12px">Quando a 33K também opera o funil do cliente:</p>
+<div class="grid-2">
+<div class="flow-box gold">
+<h4>Funil VSL Perpétuo</h4>
+<div class="price">R$ 3.000/mês + 10%</div>
+<div class="desc">do faturamento bruto do funil</div>
+</div>
+<div class="flow-box blue">
+<h4>Funil Low Ticket (Quiz)</h4>
+<div class="price">R$ 2.000/mês + 15%</div>
+<div class="desc">do faturamento bruto do funil</div>
+</div>
+</div>
+<div class="highlight" style="margin-top:16px">
+<strong>LTV 12 meses por cliente:</strong> Serviço/Marca Pessoal: US$ 30.000–50.000 · Infoproduto (fixo + variável): R$ 80.000–200.000+
+</div>
+</div>
+</div>
+
+<!-- Q2 -->
+<div class="section" id="s1">
+<div class="section-header">
+<div class="badge">Quadrante 2</div>
+<h2>Funil Perpétuo VSL — Protocolo Green Card</h2>
+<p>"Como conseguir o Green Card morando no Brasil, sem trabalho formal nos EUA"</p>
+</div>
+
+<div class="card">
+<h3>🎯 Dores Latentes — Análise 80/20</h3>
+<p style="margin-bottom:16px"><span class="tag gold">80% DO RESULTADO</span> — Foco principal</p>
+<div class="dor-item" style="border-left-color:var(--red)">
+<h4>🔴 Dor #1 (DOMINANTE) — "Quero o Green Card mas acho que preciso de emprego nos EUA"</h4>
+<p style="font-size:13px;color:var(--text2)">80% do público acredita que sem trabalho formal nos EUA é IMPOSSÍVEL. O Protocolo quebra essa crença mostrando 3 vias: EB-1A, EB-2 NIW e EB-5.</p>
+</div>
+<div class="dor-item" style="border-left-color:#f59e0b">
+<h4>🟡 Dor #2 — "Tenho medo da burocracia e de ser negado"</h4>
+<p style="font-size:13px;color:var(--text2)">Processo parece impossível. Taxa EB-2 NIW caiu para ~43% em 2024 → gera urgência por orientação profissional.</p>
+</div>
+<div class="dor-item" style="border-left-color:#f59e0b">
+<h4>🟡 Dor #3 — "As regras endureceram e tenho pressa"</h4>
+<p style="font-size:13px;color:var(--text2)">Deportações de BR dobraram em 2025 (1.648→3.294). Janela se fechando = gatilho real de escassez.</p>
+</div>
+<div class="divider"></div>
+<p style="margin-bottom:8px"><span class="tag blue">20%</span> — Dores complementares</p>
+<ul style="font-size:13px">
+<li>"Não sei se me qualifico para algum visto"</li>
+<li>"Advogados cobram US$ 10-25k e nem sei se vale"</li>
+<li>"Quero garantir o futuro dos meus filhos nos EUA"</li>
+<li>"Já tentei sozinho e fui negado / não avancei"</li>
+</ul>
+<div class="highlight" style="margin-top:16px">
+<strong>⚡ Ângulo principal da VSL:</strong> "Descubra como brasileiros comuns estão conseguindo o Green Card morando no Brasil, sem emprego nos EUA — usando 3 mecanismos legais que 97% das pessoas nem sabem que existem"
+</div>
+</div>
+
+<div class="card">
+<h3>🔄 Estrutura do Funil VSL Perpétuo</h3>
+<p style="margin-bottom:16px">Tráfego exclusivamente via <strong>Meta Ads</strong> · Sem order bumps</p>
+
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+<div class="flow-box blue" style="flex:1;min-width:100px"><h4>Meta Ads</h4><div class="desc">Público frio BR</div></div>
+<span class="flow-arrow-h">→</span>
+<div class="flow-box" style="flex:1;min-width:100px"><h4>Captura</h4><div class="desc">Email/WhatsApp</div></div>
+<span class="flow-arrow-h">→</span>
+<div class="flow-box" style="flex:1;min-width:100px"><h4>Página VSL</h4><div class="desc">Vídeo 25-45min</div></div>
+<span class="flow-arrow-h">→</span>
+<div class="flow-box gold" style="flex:1;min-width:100px"><h4>Checkout</h4><div class="desc">Front End</div></div>
+</div>
+
+<div class="grid-2">
+<div>
+<div class="flow-box gold" style="margin-bottom:12px">
+<h4>FRONT END</h4>
+<div class="price" style="color:var(--gold)">R$ 297</div>
+<div class="desc">Protocolo Green Card Brasil — Passo a passo completo<br>Módulos EB-1A · EB-2 NIW · EB-5 + Autodiagnóstico</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box red" style="border-width:2px">
+<span class="tag red" style="margin-bottom:8px">⭐ PEÇA CENTRAL DO FUNIL</span>
+<h4>UPSELL 1 — Acelerador de Petição</h4>
+<div class="price" style="color:var(--red)">R$ 697</div>
+<div class="desc" style="text-align:left">
+<strong>"O cliente que não comprar isso se sente BURRO"</strong><br><br>
+• Templates de petição APROVADOS pelo USCIS<br>
+• Checklist de documentação por categoria<br>
+• Masterclass: "Como montar petição sem advogado"<br>
+• Simulador de elegibilidade com pontuação<br>
+• Comunidade exclusiva de candidatos<br><br>
+<em>O front ensina O QUE fazer. O Upsell 1 dá AS FERRAMENTAS. É a diferença entre "saber o caminho" e "ter o mapa com GPS ligado".</em>
+</div>
+</div>
+</div>
+<div>
+<div class="grid-2" style="margin-bottom:12px">
+<div class="flow-box green">
+<h4>Se comprou Upsell 1</h4>
+<div class="flow-arrow" style="padding:4px">↓</div>
+<h4>UPSELL 2</h4>
+<div class="price" style="color:var(--green);font-size:16px">R$ 1.997</div>
+<div class="desc">Mentoria Grupo · 8 encontros · Análise individual · Revisão docs · Acesso vitalício</div>
+</div>
+<div class="flow-box purple">
+<h4>Se NÃO comprou</h4>
+<div class="flow-arrow" style="padding:4px">↓</div>
+<h4>DOWNSELL</h4>
+<div class="price" style="color:var(--purple);font-size:16px">R$ 397</div>
+<div class="desc">Mesmo conteúdo do Upsell 1 com acesso 90 dias (vs. vitalício) · Sem comunidade · Sem masterclass ao vivo</div>
+</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box cyan" style="margin-bottom:12px">
+<h4>WEBINÁRIO DIÁRIO AUTOMATIZADO</h4>
+<div class="desc">Ascensão High Ticket · Cases reais · Gatilho de escassez: "vagas limitadas/mês"</div>
+</div>
+<div class="flow-box" style="margin-bottom:12px">
+<h4>WEBINÁRIO DE RECUPERAÇÃO</h4>
+<div class="desc">Para quem NÃO comprou Upsell 1 · Oferta especial + bônus exclusivo</div>
+</div>
+<div class="flow-box gold" style="border-width:2px">
+<h4>ASSESSORIA PREMIUM (HIGH TICKET)</h4>
+<div class="price" style="color:var(--gold)">R$ 12.000 — R$ 25.000</div>
+<div class="desc">Acompanhamento completo · Advogado parceiro · Toda documentação · Suporte até aprovação</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h3>📊 Métricas-Chave</h3>
+<div class="stat-row">
+<div class="stat"><div class="number">&lt; R$ 150</div><div class="label">CPA Front End</div></div>
+<div class="stat"><div class="number">10-15%</div><div class="label">Conv. Upsell 1</div></div>
+<div class="stat"><div class="number">R$ 450-600</div><div class="label">Ticket Médio Funil</div></div>
+<div class="stat"><div class="number">&gt; 3x → 5x</div><div class="label">ROAS (válid. → escala)</div></div>
+</div>
+</div>
+</div>
+
+<!-- Q3 -->
+<div class="section" id="s2">
+<div class="section-header">
+<div class="badge">Quadrante 3</div>
+<h2>Framework: Como Montar Funis de Infoprodutos</h2>
+<p>Modelo replicável para qualquer produto — estrutura padrão</p>
+</div>
+<div class="grid-2">
+<div class="card">
+<h3>📹 Módulo A — Funil VSL Perpétuo</h3>
+<p style="margin-bottom:16px">TRÁFEGO → CAPTURA → VSL → CHECKOUT → UPSELLS → ASCENSÃO</p>
+<div class="highlight">
+<strong>Precificação Padrão:</strong><br>
+<div style="margin-top:8px;font-size:14px">
+Front End: <strong>R$ 197 ou R$ 297</strong><br>
+Upsell 1: <strong>R$ 597 ou R$ 697</strong> <span class="tag red">Peça Central</span><br>
+Upsell 2: <strong>R$ 1.497 — R$ 2.997</strong><br>
+Downsell: <strong>R$ 397</strong> (mesmo entregável do Upsell 1 com menor acesso OU versão simplificada — definir conforme produto)<br>
+Order Bumps: <strong>NÃO USAR</strong> nesta estrutura
+</div></div>
+<div class="divider"></div>
+<ul>
+<li>Roteiro VSL: abertura → agitação → solução → oferta</li>
+<li>Upsell 1 = "se sente burro se não comprar" (ferramentas práticas que complementam a teoria do front)</li>
+<li>Webinário diário automatizado (ascensão high ticket)</li>
+<li>Webinário de recuperação (quem não comprou upsell 1)</li>
+<li>Scripts + criativos para público frio BR</li>
+<li>Foco em CPA do funil completo (não CPL isolado)</li>
+</ul>
+</div>
+<div class="card">
+<h3>📝 Módulo B — Funil Low Ticket (Quiz)</h3>
+<p style="margin-bottom:16px">TRÁFEGO → QUIZ → MINI-VSL → CHECKOUT → ASCENSÃO</p>
+<ul>
+<li>Quiz interativo: qualifica + segmenta</li>
+<li>Mini-VSL ou Quiz sozinho (conforme nicho)</li>
+<li>Oferta de entrada irresistível</li>
+<li>Ascensão para Módulo A via lista aquecida</li>
+</ul>
+<div class="highlight green-h" style="margin-top:20px">
+<strong>Lógica:</strong> Low Ticket captura volume + gera lista qualificada → VSL ascende para tickets maiores → Juntos = máquina de faturamento previsível.
+</div>
+</div>
+</div>
+</div>
+
+<!-- Q4 -->
+<div class="section" id="s3">
+<div class="section-header">
+<div class="badge">Quadrante 4</div>
+<h2>Cenário de Vendas e Metas — Sprints de 90 Dias</h2>
+<p>Framework FSS · Formato Meta 1 / Meta 2 / Super Meta · Metas SMART</p>
+</div>
+
+<!-- Sprint 1 -->
+<div class="card" style="border-left:3px solid var(--blue)">
+<h3><span class="tag blue">SPRINT 1</span> Abr–Jun 2026 · FUNDAÇÃO + VALIDAÇÃO</h3>
+<p style="margin-bottom:4px"><strong>ICP:</strong> Prestadores de serviço premium (advogados, consultores, médicos, coaches, arquitetos) + Experts</p>
+<p style="margin-bottom:16px;font-size:13px;color:var(--text3)"><strong>Canal:</strong> Sócio nos EUA prospecta ativamente os premium</p>
+<div class="grid-2">
+<div>
+<p style="font-weight:700;margin-bottom:8px;font-size:13px;color:var(--gold)">📦 PACOTES DE MARKETING</p>
+<div class="meta-card"><h4><span class="tag blue">META 1</span></h4><div class="smart"><span class="letter">S</span><span>Fechar 4 clientes, ticket médio US$ 1.300/mês</span><span class="letter">M</span><span>4 contratos = US$ 5.200/mês</span><span class="letter">A</span><span>Pipeline 15 leads/mês, 8 reuniões, conv 50%</span><span class="letter">R</span><span>Valida modelo no mercado americano</span><span class="letter">T</span><span>Até 30/Jun/2026</span></div></div>
+<div class="meta-card"><h4><span class="tag green">META 2</span></h4><div class="smart"><span class="letter">S</span><span>Fechar 6 clientes, ticket médio US$ 1.500/mês</span><span class="letter">M</span><span>6 contratos = US$ 9.000/mês</span><span class="letter">A</span><span>Pipeline 20 leads/mês, 10 reuniões</span><span class="letter">R</span><span>Gera verba significativa para testes perpétuo</span><span class="letter">T</span><span>Até 30/Jun/2026</span></div></div>
+<div class="meta-card"><h4><span class="tag gold">SUPER META</span></h4><div class="smart"><span class="letter">S</span><span>Fechar 8 clientes, ticket médio US$ 1.700/mês</span><span class="letter">M</span><span>8 contratos = US$ 13.600/mês</span><span class="letter">A</span><span>Pipeline 30 leads, sócio EUA full dedicado</span><span class="letter">R</span><span>Acelera roadmap do perpétuo em 30 dias</span><span class="letter">T</span><span>Até 30/Jun/2026</span></div></div>
+</div>
+<div>
+<p style="font-weight:700;margin-bottom:8px;font-size:13px;color:var(--green)">🟢 INFOPRODUTO PERPÉTUO (GREEN CARD)</p>
+<div class="meta-card"><h4><span class="tag blue">META 1</span></h4><p style="font-size:13px">VSL gravada + funil ativo + 300 leads captados</p></div>
+<div class="meta-card"><h4><span class="tag green">META 2</span></h4><p style="font-size:13px">500 leads + primeiras vendas + CPA &lt; R$ 200</p></div>
+<div class="meta-card"><h4><span class="tag gold">SUPER META</span></h4><p style="font-size:13px">CPA &lt; R$ 150, ticket médio R$ 450-600, faturamento R$ 20.000-30.000/mês<br>Investimento tráfego: R$ 3.000-5.000/mês</p></div>
+</div>
+</div>
+<div class="highlight" style="margin-top:16px">
+<strong>💰 Receita Total do Negócio — Sprint 1:</strong><br>
+Meta 1: US$ 5.200/mês + R$ 7.000-10.000/mês &nbsp;·&nbsp; Meta 2: US$ 9.000/mês + R$ 15.000-20.000/mês &nbsp;·&nbsp; Super Meta: US$ 13.600/mês + R$ 20.000-30.000/mês
+</div>
+</div>
+
+<!-- Sprint 2 -->
+<div class="card" style="border-left:3px solid var(--green)">
+<h3><span class="tag green">SPRINT 2</span> Jul–Set 2026 · ESCALA + POSICIONAMENTO</h3>
+<p style="margin-bottom:4px"><strong>ICP:</strong> Grandes negócios de serviço (fat. 6-7 dígitos) + Experts para infoprodutos + Infoprodutores consolidados</p>
+<p style="margin-bottom:16px;font-size:13px;color:var(--text3)"><strong>Canal:</strong> Inbound (conteúdo/autoridade) + Outbound (sócio EUA)</p>
+<div class="grid-2">
+<div>
+<p style="font-weight:700;margin-bottom:8px;font-size:13px;color:var(--gold)">📦 PACOTES DE MARKETING</p>
+<div class="meta-card"><h4><span class="tag blue">META 1</span></h4><p style="font-size:13px">12 clientes · ticket US$ 1.800 = <strong>US$ 21.600/mês</strong></p></div>
+<div class="meta-card"><h4><span class="tag green">META 2</span></h4><p style="font-size:13px">18 clientes · ticket US$ 2.000 = <strong>US$ 36.000/mês</strong> (2+ pacotes)</p></div>
+<div class="meta-card"><h4><span class="tag gold">SUPER META</span></h4><p style="font-size:13px">22 clientes · ticket US$ 2.200 = <strong>US$ 48.400/mês</strong> + primeiros clientes funil infoproduto</p></div>
+</div>
+<div>
+<p style="font-weight:700;margin-bottom:8px;font-size:13px;color:var(--green)">🟢 INFOPRODUTO PERPÉTUO</p>
+<div class="meta-card"><h4><span class="tag blue">META 1</span></h4><p style="font-size:13px">Fat. <strong>R$ 45.000/mês</strong> · ROAS &gt; 3x</p></div>
+<div class="meta-card"><h4><span class="tag green">META 2</span></h4><p style="font-size:13px">Fat. <strong>R$ 70.000/mês</strong> · ROAS &gt; 4x</p></div>
+<div class="meta-card"><h4><span class="tag gold">SUPER META</span></h4><p style="font-size:13px">Fat. <strong>R$ 100.000/mês</strong> · ROAS &gt; 5x + lançar funil ascensão high ticket<br>Investimento: R$ 15.000-25.000/mês</p></div>
+</div>
+</div>
+<div class="highlight green-h" style="margin-top:16px">
+<strong>💰 Receita Total:</strong> Meta 1: US$ 21.600 + R$ 45.000 · Meta 2: US$ 36.000 + R$ 70.000 · Super Meta: US$ 48.400 + R$ 100.000/mês
+</div>
+</div>
+
+<!-- Sprint 3 -->
+<div class="card" style="border-left:3px solid var(--gold)">
+<h3><span class="tag gold">SPRINT 3</span> Out–Dez 2026 · HIGH TICKET + AUTORIDADE</h3>
+<p style="margin-bottom:16px"><strong>ICP:</strong> Todos anteriores + profissionais liberais alto faturamento</p>
+<div class="grid-2">
+<div>
+<p style="font-weight:700;margin-bottom:8px;font-size:13px;color:var(--gold)">📦 PACOTES HIGH TICKET (12 MESES)</p>
+<p style="font-size:13px;color:var(--text2);margin-bottom:12px">Após provas sociais dos Sprints 1-2:</p>
+<div class="flow-box gold" style="margin-bottom:12px;text-align:left">
+<h4>PLANO SCALE</h4>
+<div class="price" style="color:var(--gold);text-align:center">US$ 5.000-8.000/mês × 12</div>
+<div class="desc">= US$ 60.000-96.000/contrato anual · Full-stack marketing + estratégia dedicada</div>
+</div>
+<div class="flow-box purple" style="text-align:left">
+<h4>PLANO ENTERPRISE</h4>
+<div class="price" style="color:var(--purple);text-align:center">US$ 10.000-15.000/mês × 12</div>
+<div class="desc">= US$ 120.000-180.000/contrato anual · CMO-as-a-service + % resultados</div>
+</div>
+<div class="meta-card" style="margin-top:12px"><p style="font-size:13px">Meta 1: 2 anuais + 30 mensais · Meta 2: 4 anuais + 35 mensais · Super Meta: 6 anuais + 40 mensais</p></div>
+</div>
+<div>
+<p style="font-weight:700;margin-bottom:8px;font-size:13px;color:var(--green)">🟢 INFOPRODUTO PERPÉTUO</p>
+<div class="meta-card"><h4><span class="tag blue">META 1</span></h4><p style="font-size:13px">Fat. <strong>R$ 120.000/mês</strong> + 3 vendas Assessoria Premium (R$ 18k média) = + R$ 54.000/mês</p></div>
+<div class="meta-card"><h4><span class="tag green">META 2</span></h4><p style="font-size:13px">Fat. <strong>R$ 180.000/mês</strong> + 5 vendas High Ticket</p></div>
+<div class="meta-card"><h4><span class="tag gold">SUPER META</span></h4><p style="font-size:13px">Fat. <strong>R$ 250.000/mês</strong> + low ticket quiz validado gerando ascensão</p></div>
+</div>
+</div>
+</div>
+
+<!-- Sprint 4 -->
+<div class="card" style="border-left:3px solid var(--purple)">
+<h3><span class="tag purple">SPRINT 4</span> Jan–Mar 2027 · SISTEMA + DOMÍNIO</h3>
+<p style="margin-bottom:16px"><strong>ICP:</strong> Todos os perfis + B2B enterprise</p>
+<div class="stat-row">
+<div class="stat"><div class="number">US$ 80k</div><div class="label">Meta 1 MRR Pacotes</div></div>
+<div class="stat"><div class="number">US$ 120k</div><div class="label">Meta 2 MRR</div></div>
+<div class="stat"><div class="number">US$ 150k</div><div class="label">Super Meta MRR</div></div>
+</div>
+<div class="stat-row">
+<div class="stat"><div class="number">R$ 180k</div><div class="label">Meta 1 Perpétuo/mês</div></div>
+<div class="stat"><div class="number">R$ 250k</div><div class="label">Meta 2 Perpétuo</div></div>
+<div class="stat"><div class="number">R$ 400k</div><div class="label">Super Meta Perpétuo</div></div>
+</div>
+<div class="highlight" style="margin-top:8px">
+<strong>🎯 Objetivo Sprint 4:</strong> Operação com time de 6+ pessoas rodando sem dependência dos sócios. Sistema comercial FSS completo.
+</div>
+</div>
+</div>
+
+<!-- Q5 -->
+<div class="section" id="s4">
+<div class="section-header">
+<div class="badge">Quadrante 5</div>
+<h2>Prospecção + Pipeline Comercial (FSS)</h2>
+<p>6 Pilares da Full Sales System aplicados ao negócio</p>
+</div>
+<div class="grid-3">
+<div class="card">
+<h3>1. Produto/Oferta</h3>
+<ul><li>Pacotes com LTV (valor do cliente no tempo) inteligente</li><li>Escada: $900 → $1.700 → $3.900 → $5.300/mês</li></ul>
+</div>
+<div class="card">
+<h3>2. Funis de Marketing</h3>
+<ul><li><strong>Inbound</strong> (atração orgânica): Conteúdo + SEO + Social Proof (prova social)</li><li><strong>Outbound</strong> (prospecção ativa): LinkedIn + Cold Email (e-mail frio)</li><li><strong>Referral</strong> (indicação): Programa 10%</li></ul>
+</div>
+<div class="card">
+<h3>3. Pré-Vendas — SDR</h3>
+<p style="font-size:12px;color:var(--text3);margin-bottom:8px">Sales Development Representative = profissional que qualifica leads</p>
+<ul><li>Qualificação BANT: Budget (orçamento), Authority (poder de decisão), Need (necessidade), Timeline (prazo)</li><li>20 leads/mês no pipeline</li><li>Taxa qualificação &gt; 40%</li></ul>
+</div>
+<div class="card">
+<h3>4. Vendas — Closing</h3>
+<p style="font-size:12px;color:var(--text3);margin-bottom:8px">Closing = fechamento de vendas</p>
+<ul><li>Diagnóstico gratuito → Proposta → Fechamento</li><li>Script focado em DOR (não features)</li><li>Máximo 2 pacotes por vez</li><li>Taxa fechamento: 25-35%</li></ul>
+</div>
+<div class="card">
+<h3>5. RH Comercial</h3>
+<ul><li>Sprint 1: Sócios vendem</li><li>Sprint 2: + 1 SDR + 1 Closer (vendedor especialista em fechar)</li><li>Sprint 3: + 1 CS (Customer Success = sucesso do cliente / pós-venda)</li><li>Sprint 4: Time completo 6 pessoas</li></ul>
+</div>
+<div class="card">
+<h3>6. Gestão — CRM + KPIs</h3>
+<p style="font-size:12px;color:var(--text3);margin-bottom:8px">CRM = sistema de gestão de relacionamento · KPIs = indicadores de resultado</p>
+<ul><li>Pipeline tracking (acompanhamento do funil) semanal</li><li>KPIs: Leads → Qualificados → Reuniões → Fechamentos</li><li>Comitê semanal 30min</li></ul>
+</div>
+</div>
+<div class="card" style="margin-top:20px">
+<h3>📊 Fluxo de Prospecção</h3>
+<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:16px 0">
+<div class="flow-box" style="flex:1;min-width:80px"><h4 style="font-size:12px">Suspeito</h4></div><span class="flow-arrow-h">→</span>
+<div class="flow-box" style="flex:1;min-width:80px"><h4 style="font-size:12px">Lead</h4></div><span class="flow-arrow-h">→</span>
+<div class="flow-box blue" style="flex:1;min-width:80px"><h4 style="font-size:12px">MQL</h4><div class="desc">Qualificado MKT</div></div><span class="flow-arrow-h">→</span>
+<div class="flow-box green" style="flex:1;min-width:80px"><h4 style="font-size:12px">SQL</h4><div class="desc">Qualificado Vendas</div></div><span class="flow-arrow-h">→</span>
+<div class="flow-box" style="flex:1;min-width:80px"><h4 style="font-size:12px">Reunião</h4></div><span class="flow-arrow-h">→</span>
+<div class="flow-box" style="flex:1;min-width:80px"><h4 style="font-size:12px">Proposta</h4></div><span class="flow-arrow-h">→</span>
+<div class="flow-box gold" style="flex:1;min-width:80px"><h4 style="font-size:12px">Cliente</h4></div>
+</div>
+<h4 style="margin-top:20px;font-size:14px">Metas de Pipeline por Sprint:</h4>
+<div style="overflow-x:auto;margin-top:12px">
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="border-bottom:1px solid var(--border)"><th style="padding:8px;text-align:left;color:var(--text3)">Sprint</th><th style="padding:8px;text-align:center">Leads</th><th style="padding:8px;text-align:center">MQL</th><th style="padding:8px;text-align:center">Reuniões</th><th style="padding:8px;text-align:center">Clientes</th></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px"><span class="tag blue">Sprint 1</span></td><td style="padding:8px;text-align:center">45</td><td style="padding:8px;text-align:center">18</td><td style="padding:8px;text-align:center">8</td><td style="padding:8px;text-align:center;font-weight:700">4-8</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px"><span class="tag green">Sprint 2</span></td><td style="padding:8px;text-align:center">100</td><td style="padding:8px;text-align:center">40</td><td style="padding:8px;text-align:center">20</td><td style="padding:8px;text-align:center;font-weight:700">12-22</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px"><span class="tag gold">Sprint 3</span></td><td style="padding:8px;text-align:center">160</td><td style="padding:8px;text-align:center">64</td><td style="padding:8px;text-align:center">32</td><td style="padding:8px;text-align:center;font-weight:700">20-40</td></tr>
+<tr><td style="padding:8px"><span class="tag purple">Sprint 4</span></td><td style="padding:8px;text-align:center">250</td><td style="padding:8px;text-align:center">100</td><td style="padding:8px;text-align:center">50</td><td style="padding:8px;text-align:center;font-weight:700">30-50</td></tr>
+</table>
+</div>
+</div>
+</div>
+
+<!-- Q6 -->
+<div class="section" id="s5">
+<div class="section-header">
+<div class="badge">Quadrante 6</div>
+<h2>Escada de Valor — Soluções High Ticket</h2>
+<p>Modelo FSS: ascensão de ticket baseada em resultado</p>
+</div>
+<div style="max-width:500px;margin:0 auto">
+<div class="flow-box" style="margin-bottom:4px"><h4>NÍVEL 1 — ENTRY (Entrada)</h4><div class="price">US$ 900-1.300/mês</div><div class="desc">Resolve 1 dor específica · Resultado em 30-45 dias · Disponível desde Sprint 1</div></div>
+<div class="flow-arrow">↓ resultado gera confiança ↓</div>
+<div class="flow-box blue" style="margin-bottom:4px"><h4>NÍVEL 2 — GROWTH (Crescimento)</h4><div class="price" style="color:var(--blue)">US$ 2.500-3.900/mês</div><div class="desc">2-3 pacotes combinados · Ecossistema completo · Contrato mín. 3 meses</div></div>
+<div class="flow-arrow">↓ resultados comprovados ↓</div>
+<div class="flow-box gold" style="margin-bottom:4px"><h4>NÍVEL 3 — SCALE (Escala) · 12 meses</h4><div class="price" style="color:var(--gold)">US$ 5.000-8.000/mês</div><div class="desc">Full-stack marketing · Reuniões semanais · Account manager dedicado · Disponível Sprint 3+</div></div>
+<div class="flow-arrow">↓ parceria estratégica ↓</div>
+<div class="flow-box purple"><h4>NÍVEL 4 — ENTERPRISE / ADVISORY · 12 meses</h4><div class="price" style="color:var(--purple)">US$ 10.000-15.000/mês + %</div><div class="desc">CMO-as-a-service (diretor de marketing terceirizado) · Revenue share (participação nos resultados) · Exclusividade no segmento</div></div>
+</div>
+<div class="card" style="margin-top:24px">
+<h3>📊 LTV Projetado por Nível (12 meses)</h3>
+<div class="stat-row">
+<div class="stat"><div class="number">$12-16k</div><div class="label">Nível 1</div></div>
+<div class="stat"><div class="number">$30-47k</div><div class="label">Nível 2</div></div>
+<div class="stat"><div class="number">$60-96k</div><div class="label">Nível 3</div></div>
+<div class="stat"><div class="number">$120-180k+</div><div class="label">Nível 4</div></div>
+</div>
+</div>
+</div>
+
+<!-- Q7 -->
+<div class="section" id="s6">
+<div class="section-header">
+<div class="badge">Quadrante 7</div>
+<h2>Potencial de Escala — Protocolo Green Card</h2>
+<p>Dados de mercado e tamanho do público endereçável</p>
+</div>
+<div class="card">
+<h3>📊 Tamanho do Mercado</h3>
+<div class="stat-row">
+<div class="stat"><div class="number">215M</div><div class="label">Brasileiros</div></div>
+<div class="stat"><div class="number">40%</div><div class="label">Querem emigrar (Febraban 2025)</div></div>
+<div class="stat"><div class="number">86M</div><div class="label">Interesse em sair do BR</div></div>
+<div class="stat"><div class="number">37%</div><div class="label">Preferem os EUA</div></div>
+</div>
+<div class="stat-row">
+<div class="stat" style="border-color:var(--gold)"><div class="number">~32M</div><div class="label">Brasileiros interessados nos EUA</div></div>
+<div class="stat" style="border-color:var(--gold)"><div class="number">5-8M</div><div class="label">Classe A/B + quer EUA</div></div>
+<div class="stat" style="border-color:var(--gold)"><div class="number">50k-160k</div><div class="label">Compradores potenciais (1-2%)</div></div>
+</div>
+</div>
+<div class="grid-2">
+<div class="card">
+<h3>🇺🇸 Brasileiros já nos EUA</h3>
+<ul>
+<li>1,9 a 2 milhões vivendo nos EUA (Itamaraty, 2025)</li>
+<li>Muitos sem status legal → público ALTAMENTE qualificado</li>
+<li>Concentração: Flórida, Massachusetts, NY, NJ</li>
+</ul>
+</div>
+<div class="card">
+<h3>📈 Demanda por Vistos EB (USCIS)</h3>
+<ul>
+<li>Brasil = Top 5 em volume de petições EB</li>
+<li>EB-1A: ~60-61% aprovação (mais estável)</li>
+<li>EB-2 NIW: caiu de 90%+ para ~43% → URGÊNCIA</li>
+<li>EB-5: processo longo mas alta aprovação com capital</li>
+</ul>
+</div>
+</div>
+<div class="card">
+<h3>⚡ Fatores de Aceleração</h3>
+<div class="grid-2">
+<div class="highlight" style="border-color:var(--red)"><strong style="color:var(--red)">Deportações 2x</strong><br><span style="font-size:13px">1.648→3.294 em 2025. Via legal é o único caminho seguro.</span></div>
+<div class="highlight" style="border-color:var(--red)"><strong style="color:var(--red)">Regras endurecendo</strong><br><span style="font-size:13px">Janela se fechando = gatilho de escassez real.</span></div>
+<div class="highlight green-h"><strong style="color:var(--green)">Gen Y/Z digital</strong><br><span style="font-size:13px">50% Gen Y + 44% Gen Z querem emigrar. Público nativo digital = compra infoproduto.</span></div>
+<div class="highlight green-h"><strong style="color:var(--green)">50x mais barato</strong><br><span style="font-size:13px">Advogados: US$ 10-25k. Infoproduto R$ 297 = "a educação que precede o advogado".</span></div>
+</div>
+</div>
+<div class="card">
+<h3>🚀 Cenário de Escala Projetado</h3>
+<p style="margin-bottom:16px;font-size:13px;color:var(--text3)">Ticket médio R$ 450-600 · Conversão upsell 1: 10-15%</p>
+<div class="grid-2">
+<div class="flow-box blue" style="margin-bottom:12px"><span class="tag blue">FASE 1 · Sprint 1</span><h4 style="margin-top:8px">50-100 vendas/mês</h4><div class="price" style="color:var(--blue)">R$ 22.500-60.000/mês</div></div>
+<div class="flow-box green" style="margin-bottom:12px"><span class="tag green">FASE 2 · Sprint 2</span><h4 style="margin-top:8px">200-400 vendas/mês</h4><div class="price" style="color:var(--green)">R$ 90.000-240.000/mês</div></div>
+<div class="flow-box gold" style="margin-bottom:12px"><span class="tag gold">FASE 3 · Sprint 3</span><h4 style="margin-top:8px">500-1.000 vendas/mês</h4><div class="price" style="color:var(--gold)">R$ 225.000-600.000/mês</div></div>
+<div class="flow-box purple"><span class="tag purple">FASE 4 · Sprint 4</span><h4 style="margin-top:8px">1.500+ vendas/mês</h4><div class="price" style="color:var(--purple)">R$ 675.000+/mês</div></div>
+</div>
+<div class="highlight" style="margin-top:16px">
+<strong>⚡ Conclusão:</strong> Com pool de 50.000-160.000 compradores potenciais, há runway (pista de crescimento) para <strong>3-5 anos de escala</strong> antes de saturar. Mercado de dezenas de milhões com dor latente, urgência crescente e hábito de compra digital. O infoproduto de R$ 297 é a porta de entrada para uma escada que vai até R$ 25.000+.
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+33K Marketing — Fluxograma Estratégico Confidencial — Projeto Série A (EUA) — Março 2026<br>
+Desenvolvido para apresentação aos sócios
+</div>
+
+<script>
+function showSection(i,btn){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+document.getElementById('s'+i).classList.add('active');
+btn.classList.add('active');
+window.scrollTo({top:200,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
